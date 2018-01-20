@@ -39,8 +39,8 @@ public class StationDao {
 		while (results.next()) {
 			Station station = new Station();
 			station.setStationName(results.getString(STATION_NAME_COLUMN));
-			double lat = results.getDouble(LATITUDE_COLUMN);
-			double lng = results.getDouble(LONGITUDE_COLUMN);
+			String lat = results.getString(LATITUDE_COLUMN);
+			String lng = results.getString(LONGITUDE_COLUMN);
 			station.setLatLng(new LatLng(lat, lng));
 			stations.add(station);
 		}

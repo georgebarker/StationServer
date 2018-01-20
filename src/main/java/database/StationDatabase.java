@@ -28,10 +28,10 @@ public class StationDatabase {
 		if (connection != null) {
 			try {
 				PreparedStatement statement = connection.prepareStatement(QUERY);
-				statement.setDouble(1, latLng.getLatitude());
-				statement.setDouble(2, latLng.getLatitude());
-				statement.setDouble(3, latLng.getLongitude());
-				statement.setDouble(4, latLng.getLongitude());
+				statement.setString(1, latLng.getLatitude());
+				statement.setString(2, latLng.getLatitude());
+				statement.setString(3, latLng.getLongitude());
+				statement.setString(4, latLng.getLongitude());
 				return statement.executeQuery();
 			} catch (SQLException e) {
 				System.err.println("Issue retreiving results from the database.");

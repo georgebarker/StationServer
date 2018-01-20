@@ -57,8 +57,8 @@ public class StationHandler implements HttpHandler {
 		}
 		
 		try {
-			double lat = Double.valueOf(latParams[1]); 
-			double lng = Double.valueOf(lngParams[1]);
+			String lat = latParams[1]; 
+			String lng = lngParams[1];
 			return new LatLng(lat, lng);
 		} catch (NumberFormatException e) {
 			System.err.println("Issue with parameters provided by user. Error will be returned to user.");
