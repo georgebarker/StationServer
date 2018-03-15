@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * I am a POJO that represents a train station.
+ */
 public class Station {
 	private String stationName;
 	private LatLng latLng;

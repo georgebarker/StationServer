@@ -9,6 +9,10 @@ import database.StationDatabase;
 import model.LatLng;
 import model.Station;
 
+/**
+ * I am a Data Access Object - I retrieve results from the database and
+ * translate them into a Station object that makes sense.
+ */
 public class StationDao {
 	private static final String STATION_NAME_COLUMN = "StationName";
 	private static final String LATITUDE_COLUMN = "Latitude";
@@ -16,10 +20,24 @@ public class StationDao {
 
 	private StationDatabase database;
 
+	/**
+	 * I instantiate a Dao object
+	 * 
+	 * @param database
+	 *            the database required to perform queries.
+	 */
 	public StationDao(StationDatabase database) {
 		this.database = database;
 	}
 
+	/**
+	 * I get the stations from the database using the provided LatLng
+	 * 
+	 * @param latLng
+	 *            I am the LatLng that has been provided by the user
+	 * @return a list of Station objects, or null if there are issues mapping the
+	 *         results or retrieving from the DB
+	 */
 	public List<Station> getStationsByLatLng(LatLng latLng) {
 		try {
 			ResultSet results = database.query(latLng);
@@ -34,6 +52,17 @@ public class StationDao {
 		}
 	}
 
+	/**
+	 * I map a generic SQL ResultSet to a list of Stations.
+	 * 
+	 * @param results
+	 *            I am the Stations in the format of a generic ResultSet
+	 * @return the list of stations that arrived as a ResultSet, as a List of
+	 *         Stations
+	 * @throws SQLException
+	 *             I throw this when there is an issue retrieving data from the
+	 *             ResultSet
+	 */
 	public List<Station> mapResultSetToStations(ResultSet results) throws SQLException {
 		List<Station> stations = new ArrayList<>();
 		while (results.next()) {

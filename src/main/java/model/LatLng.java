@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * I am a POJO that represents latitude and longitude.
+ */
 public class LatLng {
 	private String latitude;
 	private String longitude;
